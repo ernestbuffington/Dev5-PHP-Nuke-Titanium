@@ -15,7 +15,7 @@ namespace phpbb\db\migration\data\v32x;
 
 class email_force_sender extends \phpbb\db\migration\migration
 {
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return array(
 			'\phpbb\db\migration\data\v32x\v321',

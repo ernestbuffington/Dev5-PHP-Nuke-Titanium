@@ -1,5 +1,0 @@
-services:
-    phpBB.sslAssets.listener:
-        class: phpBB\sslAssets\event\listener
-        tags:
-            - { name: event.listener }

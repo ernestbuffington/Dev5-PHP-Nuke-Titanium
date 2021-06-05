@@ -60,7 +60,7 @@ class report_pm extends \phpbb\notification\type\pm
 	* @var bool|array False if the service should use it's default data
 	* 					Array of data (including keys 'id', 'lang', and 'group')
 	*/
-	public static $notification_option = [
+	static public $notification_option = [
 		'id'	=> 'notification.type.report_pm',
 		'lang'	=> 'NOTIFICATION_TYPE_REPORT_PM',
 		'group'	=> 'NOTIFICATION_GROUP_MODERATION',
@@ -72,7 +72,7 @@ class report_pm extends \phpbb\notification\type\pm
 	* @param array $pm The data from the pm
 	* @return int The report id
 	*/
-	public static function get_item_parent_id($pm)
+	static public function get_item_parent_id($pm)
 	{
 		return (int) $pm['report_id'];
 	}

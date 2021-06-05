@@ -22,7 +22,7 @@ class v320b2 extends migration
 		return version_compare($this->config['version'], '3.2.0-b2', '>=');
 	}
 
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return array(
 			'\phpbb\db\migration\data\v31x\v318',

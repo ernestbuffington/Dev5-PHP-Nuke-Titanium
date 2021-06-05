@@ -20,7 +20,7 @@ class dev extends \phpbb\db\migration\migration
 		return version_compare($this->config['version'], '3.3.0-dev', '>=');
 	}
 
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return array(
 			'\phpbb\db\migration\data\v32x\v327',

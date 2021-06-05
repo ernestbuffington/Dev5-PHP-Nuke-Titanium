@@ -22,7 +22,7 @@ class extensions_composer extends migration
 		return $this->config->offsetExists('exts_composer_repositories');
 	}
 
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return [
 			'\phpbb\db\migration\data\v400\dev',

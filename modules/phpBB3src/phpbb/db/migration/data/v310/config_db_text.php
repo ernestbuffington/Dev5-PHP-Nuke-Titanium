@@ -20,7 +20,7 @@ class config_db_text extends \phpbb\db\migration\migration
 		return $this->db_tools->sql_table_exists($this->table_prefix . 'config_text');
 	}
 
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return array('\phpbb\db\migration\data\v30x\release_3_0_11');
 	}

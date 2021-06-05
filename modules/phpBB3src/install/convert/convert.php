@@ -39,6 +39,8 @@ class convert
 	var $src_truncate_statement = 'DELETE FROM ';
 	var $truncate_statement = 'DELETE FROM ';
 
+	var $fulltext_search;
+
 	// Batch size, can be adjusted by the conversion file
 	// For big boards a value of 6000 seems to be optimal
 	var $batch_size = 2000;

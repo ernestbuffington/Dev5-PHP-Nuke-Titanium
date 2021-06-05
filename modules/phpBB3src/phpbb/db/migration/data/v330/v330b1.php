@@ -20,7 +20,7 @@ class v330b1 extends \phpbb\db\migration\migration
 		return version_compare($this->config['version'], '3.3.0-b1', '>=');
 	}
 
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return array(
 			'\phpbb\db\migration\data\v330\jquery_update',

@@ -24,7 +24,7 @@ class avatar_types extends \phpbb\db\migration\migration
 		AVATAR_GALLERY	=> 'avatar.driver.local',
 	);
 
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return array(
 			'\phpbb\db\migration\data\v310\dev',

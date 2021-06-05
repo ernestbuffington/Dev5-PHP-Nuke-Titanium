@@ -15,7 +15,7 @@ namespace phpbb\db\migration\data\v30x;
 
 class local_url_bbcode extends \phpbb\db\migration\migration
 {
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return array('\phpbb\db\migration\data\v30x\release_3_0_12_rc1');
 	}

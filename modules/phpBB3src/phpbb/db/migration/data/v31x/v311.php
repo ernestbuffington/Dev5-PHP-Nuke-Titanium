@@ -20,7 +20,7 @@ class v311 extends \phpbb\db\migration\migration
 		return phpbb_version_compare($this->config['version'], '3.1.1', '>=');
 	}
 
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return array(
 			'\phpbb\db\migration\data\v310\gold',

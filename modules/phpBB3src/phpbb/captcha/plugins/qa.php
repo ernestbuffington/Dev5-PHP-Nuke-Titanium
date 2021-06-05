@@ -177,7 +177,7 @@ class qa
 	/**
 	*  API function
 	*/
-	public static function get_name()
+	static public function get_name()
 	{
 		return 'CAPTCHA_QA';
 	}

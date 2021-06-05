@@ -31,7 +31,7 @@ class manager
 	* Array that contains a list of enabled drivers
 	* @var array|bool
 	*/
-	protected static $enabled_drivers = false;
+	static protected $enabled_drivers = false;
 
 	/**
 	* Array that contains all available avatar drivers which are passed via the
@@ -44,7 +44,7 @@ class manager
 	* Default avatar data row
 	* @var array
 	*/
-	protected static $default_row = array(
+	static protected $default_row = array(
 		'avatar'		=> '',
 		'avatar_type'	=> '',
 		'avatar_width'	=> 0,
@@ -196,7 +196,7 @@ class manager
 	*			stripped from the preceding "user_" or "group_"
 	*			Also the group id is prefixed with g, when the prefix group is removed.
 	*/
-	public static function clean_row($row, $prefix = '')
+	static public function clean_row($row, $prefix = '')
 	{
 		// Upon creation of a user/group $row might be empty
 		if (empty($row))
@@ -227,7 +227,7 @@ class manager
 	*
 	* @return string Cleaned driver name
 	*/
-	public static function clean_driver_name($name)
+	static public function clean_driver_name($name)
 	{
 		return str_replace(array('\\', '_'), '.', $name);
 	}
@@ -240,7 +240,7 @@ class manager
 	*
 	* @return string Prepared driver name
 	*/
-	public static function prepare_driver_name($name)
+	static public function prepare_driver_name($name)
 	{
 		return str_replace('.', '_', $name);
 	}

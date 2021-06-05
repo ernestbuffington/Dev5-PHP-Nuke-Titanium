@@ -1,0 +1,50 @@
+{
+    "name": "misantron/dbunit",
+    "description": "DbUnit fork supporting PHPUnit 8/9",
+    "type": "library",
+    "keywords": [
+        "database",
+        "testing",
+        "dbunit"
+    ],
+    "homepage": "https://github.com/misantron/dbunit/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aleksandr Ivanov",
+            "email": "misantron@gmail.com",
+            "role": "developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/misantron/dbunit/issues"
+    },
+    "require": {
+        "php": "^7.2|^7.3|^7.4",
+        "ext-pdo": "*",
+        "ext-simplexml": "*",
+        "ext-libxml": "*",
+        "phpunit/phpunit": "^8.5|^9.2",
+        "symfony/yaml": "^4.4|^5.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "php-coveralls/php-coveralls": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "PHPUnit\\DbUnit\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PHPUnit\\DbUnit\\Tests\\": "tests/"
+        },
+        "files": [
+            "tests/_files/DatabaseTestUtility.php"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

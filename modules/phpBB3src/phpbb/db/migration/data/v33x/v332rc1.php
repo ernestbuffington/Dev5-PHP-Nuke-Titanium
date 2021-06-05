@@ -20,7 +20,7 @@ class v332rc1 extends \phpbb\db\migration\migration
 		return version_compare($this->config['version'], '3.3.2-RC1', '>=');
 	}
 
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return [
 			'\phpbb\db\migration\data\v33x\remove_profilefield_aol',

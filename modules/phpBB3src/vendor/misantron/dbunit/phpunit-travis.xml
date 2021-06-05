@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="tests/bootstrap.php"
+         beStrictAboutCoversAnnotation="true"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutTodoAnnotatedTests="true"
+         verbose="true">
+    <testsuite name="all">
+        <directory>tests/Constraint</directory>
+        <directory>tests/DataSet</directory>
+        <directory>tests/Operation</directory>
+        <directory>tests/DB</directory>
+    </testsuite>
+
+    <php>
+        <const name="PHPUNIT_TESTSUITE" value="true"/>
+        <const name="PHPUNIT_TESTSUITE_EXTENSION_DATABASE_MYSQL_DSN" value="mysql:host=127.0.0.1;dbname=dbunit;port=3306"/>
+        <const name="PHPUNIT_TESTSUITE_EXTENSION_DATABASE_MYSQL_USERNAME" value="root"/>
+        <const name="PHPUNIT_TESTSUITE_EXTENSION_DATABASE_MYSQL_PASSWORD" value=""/>
+    </php>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+    </logging>
+</phpunit>

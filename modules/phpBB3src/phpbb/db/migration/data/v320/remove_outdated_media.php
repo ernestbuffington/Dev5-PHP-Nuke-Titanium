@@ -28,7 +28,7 @@ class remove_outdated_media extends \phpbb\db\migration\migration
 			self::ATTACHMENT_CATEGORY_QUICKTIME,
 		);
 
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return array(
 			'\phpbb\db\migration\data\v320\dev',

@@ -904,7 +904,7 @@ function delete_topics($where_type, $where_ids, $auto_sync = true, $post_count_s
 */
 function delete_posts($where_type, $where_ids, $auto_sync = true, $posted_sync = true, $post_count_sync = true, $call_delete_topics = true)
 {
-	global $db, $config, $phpbb_container, $phpbb_dispatcher;
+	global $db, $config, $phpbb_root_path, $phpEx, $auth, $user, $phpbb_container, $phpbb_dispatcher;
 
 	// Notifications types to delete
 	$delete_notifications_types = array(
@@ -1086,21 +1086,19 @@ function delete_posts($where_type, $where_ids, $auto_sync = true, $posted_sync =
 	}
 
 	// Remove the message from the search index
-	try
+	$search_type = $config['search_type'];
+
+	if (!class_exists($search_type))
 	{
-		$search_backend_factory = $phpbb_container->get('search.backend_factory');
-		$search = $search_backend_factory->get_active();
+		trigger_error('NO_SUCH_SEARCH_MODULE');
 	}
-	catch (RuntimeException $e)
+
+	$error = false;
+	$search = new $search_type($error, $phpbb_root_path, $phpEx, $auth, $config, $db, $user, $phpbb_dispatcher);
+
+	if ($error)
 	{
-		if (strpos($e->getMessage(), 'No service found') === 0)
-		{
-			trigger_error('NO_SUCH_SEARCH_MODULE');
-		}
-		else
-		{
-			throw $e;
-		}
+		trigger_error($error);
 	}
 
 	$search->index_remove($post_ids, $poster_ids, $forum_ids);
@@ -2420,7 +2418,7 @@ function auto_prune($forum_id, $prune_mode, $prune_flags, $prune_days, $prune_fr
 * must be carried through for the moderators table.
 *
 * @param \phpbb\db\driver\driver_interface $db Database connection
-* @param \phpbb\cache\driver\driver_interface $cache Cache driver
+* @param \phpbb\cache\driver\driver_interface Cache driver
 * @param \phpbb\auth\auth $auth Authentication object
 * @return null
 */

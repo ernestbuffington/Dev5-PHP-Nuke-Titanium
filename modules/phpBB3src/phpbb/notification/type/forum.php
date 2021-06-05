@@ -36,7 +36,7 @@ class forum extends \phpbb\notification\type\post
 	 * @var bool|array False if the service should use its default data
 	 * 					Array of data (including keys 'id', 'lang', and 'group')
 	 */
-	public static $notification_option = [
+	static public $notification_option = [
 		'lang'	=> 'NOTIFICATION_TYPE_FORUM',
 		'group'	=> 'NOTIFICATION_GROUP_POSTING',
 	];

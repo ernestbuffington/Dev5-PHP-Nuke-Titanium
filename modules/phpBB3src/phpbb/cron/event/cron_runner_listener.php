@@ -94,7 +94,7 @@ class cron_runner_listener implements EventSubscriberInterface
 	/**
 	 * {@inheritdoc}
 	 */
-	public static function getSubscribedEvents()
+	static public function getSubscribedEvents()
 	{
 		return array(
 			KernelEvents::TERMINATE		=> 'on_kernel_terminate',

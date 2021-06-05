@@ -29,7 +29,7 @@ class remove_dbms_version_config extends migration
 		];
 	}
 
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return [
 			'\phpbb\db\migration\data\v30x\release_3_0_3_rc1',

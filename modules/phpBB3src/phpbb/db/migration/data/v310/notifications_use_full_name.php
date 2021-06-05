@@ -40,7 +40,7 @@ class notifications_use_full_name extends \phpbb\db\migration\migration
 		'jabber',
 	);
 
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return array('\phpbb\db\migration\data\v310\rc3');
 	}

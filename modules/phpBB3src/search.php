@@ -294,21 +294,19 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 	}
 
 	// Select which method we'll use to obtain the post_id or topic_id information
-	try
+	$search_type = $config['search_type'];
+
+	if (!class_exists($search_type))
 	{
-		$search_backend_factory = $phpbb_container->get('search.backend_factory');
-		$search = $search_backend_factory->get_active();
+		trigger_error('NO_SUCH_SEARCH_MODULE');
 	}
-	catch (RuntimeException $e)
+	// We do some additional checks in the module to ensure it can actually be utilised
+	$error = false;
+	$search = new $search_type($error, $phpbb_root_path, $phpEx, $auth, $config, $db, $user, $phpbb_dispatcher);
+
+	if ($error)
 	{
-		if (strpos($e->getMessage(), 'No service found') === 0)
-		{
-			trigger_error('NO_SUCH_SEARCH_MODULE');
-		}
-		else
-		{
-			throw $e;
-		}
+		trigger_error($error);
 	}
 
 	// let the search module split up the keywords
@@ -544,7 +542,7 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 	extract($phpbb_dispatcher->trigger_event('core.search_modify_param_after', compact($vars)));
 
 	// show_results should not change after this
-	$per_page = ($show_results == 'posts') ? (int) $config['posts_per_page'] : (int) $config['topics_per_page'];
+	$per_page = ($show_results == 'posts') ? $config['posts_per_page'] : $config['topics_per_page'];
 	$total_match_count = 0;
 
 	// Set limit for the $total_match_count to reduce server load
@@ -1301,7 +1299,7 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 
 	// Check if search backend supports phrase search or not
 	$phrase_search_disabled = '';
-	if (strpos(html_entity_decode($keywords), '"') !== false)
+	if (strpos(html_entity_decode($keywords), '"') !== false && method_exists($search, 'supports_phrase_search'))
 	{
 		$phrase_search_disabled = $search->supports_phrase_search() ? false : true;
 	}

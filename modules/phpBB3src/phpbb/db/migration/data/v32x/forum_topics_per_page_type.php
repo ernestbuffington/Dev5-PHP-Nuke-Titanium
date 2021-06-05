@@ -16,7 +16,7 @@ namespace phpbb\db\migration\data\v32x;
 class forum_topics_per_page_type extends \phpbb\db\migration\migration
 {
 
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return array(
 			'\phpbb\db\migration\data\v32x\v323',

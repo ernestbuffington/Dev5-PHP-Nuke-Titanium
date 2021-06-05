@@ -15,7 +15,7 @@ namespace phpbb\db\migration\data\v32x;
 
 class user_notifications_table_reduce_column_sizes extends \phpbb\db\migration\migration
 {
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return array(
 			'\phpbb\db\migration\data\v32x\user_notifications_table_index_p3',

@@ -75,7 +75,7 @@ class update_extensions extends task_base
 	 * @var array	List of default extensions to update, grouped by version
 	 *				they were added
 	 */
-	public static $default_extensions_update = [
+	static public $default_extensions_update = [
 		'3.2.0-RC2' => ['phpbb/viglink']
 	];
 
@@ -222,7 +222,7 @@ class update_extensions extends task_base
 	/**
 	 * {@inheritdoc}
 	 */
-	public static function get_step_count()
+	static public function get_step_count()
 	{
 		return 1;
 	}

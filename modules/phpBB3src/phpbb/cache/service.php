@@ -13,8 +13,6 @@
 
 namespace phpbb\cache;
 
-use phpbb\cache\driver\driver_interface;
-use phpbb\config\config;
 use phpbb\json\sanitizer as json_sanitizer;
 
 /**
@@ -25,14 +23,14 @@ class service
 	/**
 	* Cache driver.
 	*
-	* @var driver_interface
+	* @var \phpbb\cache\driver\driver_interface
 	*/
 	protected $driver;
 
 	/**
 	* The config.
 	*
-	* @var config
+	* @var \phpbb\config\config
 	*/
 	protected $config;
 
@@ -60,13 +58,13 @@ class service
 	/**
 	* Creates a cache service around a cache driver
 	*
-	* @param driver_interface $driver The cache driver
-	* @param config $config The config
+	* @param \phpbb\cache\driver\driver_interface $driver The cache driver
+	* @param \phpbb\config\config $config The config
 	* @param \phpbb\db\driver\driver_interface $db Database connection
 	* @param string $phpbb_root_path Root path
 	* @param string $php_ext PHP file extension
 	*/
-	public function __construct(driver_interface $driver, config $config, \phpbb\db\driver\driver_interface $db, $phpbb_root_path, $php_ext)
+	public function __construct(\phpbb\cache\driver\driver_interface $driver, \phpbb\config\config $config, \phpbb\db\driver\driver_interface $db, $phpbb_root_path, $php_ext)
 	{
 		$this->set_driver($driver);
 		$this->config = $config;
@@ -78,7 +76,7 @@ class service
 	/**
 	* Returns the cache driver used by this cache service.
 	*
-	* @return driver_interface The cache driver
+	* @return \phpbb\cache\driver\driver_interface The cache driver
 	*/
 	public function get_driver()
 	{
@@ -88,9 +86,9 @@ class service
 	/**
 	* Replaces the cache driver used by this cache service.
 	*
-	* @param driver_interface $driver The cache driver
+	* @param \phpbb\cache\driver\driver_interface $driver The cache driver
 	*/
-	public function set_driver(driver_interface $driver)
+	public function set_driver(\phpbb\cache\driver\driver_interface $driver)
 	{
 		$this->driver = $driver;
 	}

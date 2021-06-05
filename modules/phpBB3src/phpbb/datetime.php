@@ -32,7 +32,7 @@ class datetime extends \DateTime
 	/**
 	* @var array Date formats are preprocessed by phpBB, to save constant recalculation they are cached.
 	*/
-	protected static $format_cache = array();
+	static protected $format_cache = array();
 
 	/**
 	* Constructs a new instance of \phpbb\datetime, expanded to include an argument to inject
@@ -143,7 +143,7 @@ class datetime extends \DateTime
 	* @param user $user User object to use for localisation
 	* @return array Processed date format
 	*/
-	protected static function format_cache($format, $user)
+	static protected function format_cache($format, $user)
 	{
 		$lang = $user->lang_name;
 

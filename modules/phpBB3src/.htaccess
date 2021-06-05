@@ -1,11 +1,6 @@
 <IfModule mod_rewrite.c>
 RewriteEngine on
 
-RewriteCond %{QUERY_STRING} create_form [OR]
-RewriteCond %{REQUEST_URI} create_form [OR]
-RewriteCond %{HTTP_REFERER} create_form
-RewriteRule . / [F,L]
-
 #
 # Uncomment the statement below if URL rewriting doesn't
 # work properly. If you installed phpBB in a subdirectory

@@ -60,7 +60,7 @@ class exception_subscriber implements EventSubscriberInterface
 		}
 	}
 
-	public static function getSubscribedEvents()
+	static public function getSubscribedEvents()
 	{
 		return [
 			ConsoleEvents::ERROR => 'on_error',

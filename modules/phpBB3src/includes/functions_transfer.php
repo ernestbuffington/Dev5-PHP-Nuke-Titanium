@@ -237,7 +237,7 @@ class transfer
 	/**
 	* Determine methods able to be used
 	*/
-	public static function methods()
+	static public function methods()
 	{
 		$methods = array();
 		$disabled_functions = explode(',', @ini_get('disable_functions'));
@@ -289,7 +289,7 @@ class ftp extends transfer
 	/**
 	* Requests data
 	*/
-	public static function data()
+	static public function data()
 	{
 		global $user;
 
@@ -537,7 +537,7 @@ class ftp_fsock extends transfer
 	/**
 	* Requests data
 	*/
-	public static function data()
+	static public function data()
 	{
 		global $user;
 

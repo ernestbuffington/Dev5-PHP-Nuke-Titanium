@@ -161,7 +161,6 @@ class php_exporter
 	*
 	* @param string $action
 	* @return string
-	* @deprecated 3.3.5-RC1 (To be removed: 4.0.0-a1)
 	*/
 	public function export_events_for_wiki($action = '')
 	{
@@ -183,28 +182,6 @@ class php_exporter
 		$wiki_page .= '|}' . "\n";
 
 		return $wiki_page;
-	}
-
-	/**
-	 * Format the PHP events as a rst table
-	 *
-	 * @param string $action
-	 * @return string
-	 */
-	public function export_events_for_rst(string $action = ''): string
-	{
-		$rst_exporter = new rst_exporter();
-		$rst_exporter->add_section_header($action === 'diff' ? 'h3' : 'h2', 'PHP Events');
-		$rst_exporter->set_columns([
-			'event'			=> 'Identifier',
-			'file'			=> 'Placement',
-			'arguments'		=> 'Arguments',
-			'since'			=> 'Added in Release',
-			'description'	=> 'Explanation',
-		]);
-		$rst_exporter->generate_events_table($this->events);
-
-		return $rst_exporter->get_rst_output();
 	}
 
 	/**
@@ -314,32 +291,24 @@ class php_exporter
 						array_pop($description_lines);
 					}
 
-					$description = trim(implode('<br>', $description_lines));
-					sort($arguments);
+					$description = trim(implode('<br/>', $description_lines));
 
 					if (isset($this->events[$this->current_event]))
 					{
-						if ($this->events[$this->current_event]['arguments'] != $arguments ||
-							$this->events[$this->current_event]['since'] != $since)
-						{
-							throw new \LogicException("The event '{$this->current_event}' from file "
-								. "'{$this->current_file}:{$event_line_num}' already exists in file "
-								. "'{$this->events[$this->current_event]['file']}'", 10);
-						}
+						throw new \LogicException("The event '{$this->current_event}' from file "
+							. "'{$this->current_file}:{$event_line_num}' already exists in file "
+							. "'{$this->events[$this->current_event]['file']}'", 10);
+					}
 
-						$this->events[$this->current_event]['file'] .= '<br>' . $this->current_file;
-					}
-					else
-					{
-						$this->events[$this->current_event] = array(
-							'event' => $this->current_event,
-							'file' => $this->current_file,
-							'arguments' => $arguments,
-							'since' => $since,
-							'description' => $description,
-						);
-						$num_events_found++;
-					}
+					sort($arguments);
+					$this->events[$this->current_event] = array(
+						'event'			=> $this->current_event,
+						'file'			=> $this->current_file,
+						'arguments'		=> $arguments,
+						'since'			=> $since,
+						'description'	=> $description,
+					);
+					$num_events_found++;
 				}
 			}
 		}

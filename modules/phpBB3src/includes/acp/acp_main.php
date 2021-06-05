@@ -646,24 +646,11 @@ class acp_main
 		}
 
 		// Warn if no search index is created
-		if ($config['num_posts'])
+		if ($config['num_posts'] && class_exists($config['search_type']))
 		{
-			try
-			{
-				$search_backend_factory = $phpbb_container->get('search.backend_factory');
-				$search = $search_backend_factory->get_active();
-			}
-			catch (RuntimeException $e)
-			{
-				if (strpos($e->getMessage(), 'No service found') === 0)
-				{
-					trigger_error('NO_SUCH_SEARCH_MODULE');
-				}
-				else
-				{
-					throw $e;
-				}
-			}
+			$error = false;
+			$search_type = $config['search_type'];
+			$search = new $search_type($error, $phpbb_root_path, $phpEx, $auth, $config, $db, $user, $phpbb_dispatcher);
 
 			if (!$search->index_created())
 			{

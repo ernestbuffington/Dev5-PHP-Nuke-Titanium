@@ -203,7 +203,7 @@ class obtain_admin_data extends \phpbb\install\task_base implements \phpbb\insta
 	/**
 	 * {@inheritdoc}
 	 */
-	public static function get_step_count()
+	static public function get_step_count()
 	{
 		return 0;
 	}

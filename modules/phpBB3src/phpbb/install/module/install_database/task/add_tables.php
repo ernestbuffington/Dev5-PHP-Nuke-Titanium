@@ -129,7 +129,7 @@ class add_tables extends task_base
 	/**
 	 * {@inheritdoc}
 	 */
-	public static function get_step_count() : int
+	static public function get_step_count() : int
 	{
 		return 1;
 	}

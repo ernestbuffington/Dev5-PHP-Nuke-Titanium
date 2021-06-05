@@ -15,7 +15,7 @@ namespace phpbb\db\migration\data\v320;
 
 class remote_upload_validation extends \phpbb\db\migration\migration
 {
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return array(
 			'\phpbb\db\migration\data\v320\v320a2',

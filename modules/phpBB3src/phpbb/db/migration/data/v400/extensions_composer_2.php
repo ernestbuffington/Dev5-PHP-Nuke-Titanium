@@ -33,7 +33,7 @@ class extensions_composer_2 extends migration
 		];
 	}
 
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return ['\phpbb\db\migration\data\v400\extensions_composer'];
 	}

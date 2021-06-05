@@ -75,8 +75,7 @@ class acp_logs
 
 				/* @var $phpbb_log \phpbb\log\log_interface */
 				$phpbb_log = $phpbb_container->get('log');
-				// Prevent log deletion on *.phpbb.com
-				//$phpbb_log->delete($mode, $conditions);
+				$phpbb_log->delete($mode, $conditions);
 			}
 			else
 			{

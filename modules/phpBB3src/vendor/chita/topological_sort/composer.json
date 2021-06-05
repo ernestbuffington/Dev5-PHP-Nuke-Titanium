@@ -1,0 +1,24 @@
+{
+    "name": "chita/topological_sort",
+    "description": "Topological sort function",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Máté Bartus",
+            "email": "mate.bartus@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "CHItA\\TopologicalSort\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    }
+}

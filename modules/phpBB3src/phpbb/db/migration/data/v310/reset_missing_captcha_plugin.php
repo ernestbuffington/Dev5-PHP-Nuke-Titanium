@@ -20,7 +20,7 @@ namespace phpbb\db\migration\data\v310;
 */
 class reset_missing_captcha_plugin extends \phpbb\db\migration\migration
 {
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return array('\phpbb\db\migration\data\v310\dev');
 	}

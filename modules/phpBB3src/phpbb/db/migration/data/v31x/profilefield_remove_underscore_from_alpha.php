@@ -16,7 +16,7 @@ namespace phpbb\db\migration\data\v31x;
 
 class profilefield_remove_underscore_from_alpha extends \phpbb\db\migration\migration
 {
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return array('\phpbb\db\migration\data\v31x\v311');
 	}

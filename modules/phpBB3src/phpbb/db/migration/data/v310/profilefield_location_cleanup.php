@@ -20,7 +20,7 @@ class profilefield_location_cleanup extends \phpbb\db\migration\migration
 		return !$this->db_tools->sql_column_exists($this->table_prefix . 'users', 'user_from');
 	}
 
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return array(
 			'\phpbb\db\migration\data\v310\profilefield_location',

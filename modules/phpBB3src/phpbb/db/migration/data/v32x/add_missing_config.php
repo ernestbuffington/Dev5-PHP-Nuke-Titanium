@@ -18,7 +18,7 @@ use phpbb\db\migrator;
 
 class add_missing_config extends \phpbb\db\migration\container_aware_migration
 {
-	public static function depends_on()
+	static public function depends_on()
 	{
 		return [
 			'\phpbb\db\migration\data\v32x\v329',

@@ -98,7 +98,7 @@ class obtain_update_files extends task_base
 	/**
 	 * {@inheritdoc}
 	 */
-	public static function get_step_count()
+	static public function get_step_count()
 	{
 		return 0;
 	}
