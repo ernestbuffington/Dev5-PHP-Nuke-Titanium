@@ -801,6 +801,7 @@ return array(
     'ReplaceTokensWithFile' => $vendorDir . '/phing/phing/classes/phing/filters/ReplaceTokensWithFile.php',
     'ResolvePathTask' => $vendorDir . '/phing/phing/classes/phing/tasks/system/ResolvePathTask.php',
     'Retry' => $vendorDir . '/phing/phing/classes/phing/tasks/system/Retry.php',
+    'ReturnTypeWillChange' => $vendorDir . '/symfony/polyfill-php81/Resources/stubs/ReturnTypeWillChange.php',
     'RootHandler' => $vendorDir . '/phing/phing/classes/phing/parser/RootHandler.php',
     'RuntimeConfigurable' => $vendorDir . '/phing/phing/classes/phing/RuntimeConfigurable.php',
     'S3GetTask' => $vendorDir . '/phing/phing/classes/phing/tasks/ext/Service/Amazon/S3/S3GetTask.php',
